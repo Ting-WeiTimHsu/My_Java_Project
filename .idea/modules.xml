@@ -4,9 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java Test/Java_Beginner_Lab_Project.iml" filepath="$PROJECT_DIR$/Java Test/Java_Beginner_Lab_Project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java_Beginner_Project_Lab/Java_Beginner_Project_Lab.iml" filepath="$PROJECT_DIR$/Java_Beginner_Project_Lab/Java_Beginner_Project_Lab.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java_Beginner_Project_Lab/Lab/Lab.iml" filepath="$PROJECT_DIR$/Java_Beginner_Project_Lab/Lab/Lab.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java_Beginner_Project_Lab/Project/Project.iml" filepath="$PROJECT_DIR$/Java_Beginner_Project_Lab/Project/Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Beginner_Project/Java_Beginner_Project_Lab.iml" filepath="$PROJECT_DIR$/Java_Beginner_Project/Java_Beginner_Project_Lab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Beginner_Project/Lab/Lab.iml" filepath="$PROJECT_DIR$/Java_Beginner_Project/Lab/Lab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Beginner_Project/Project/Project.iml" filepath="$PROJECT_DIR$/Java_Beginner_Project/Project/Project.iml" />
     </modules>
   </component>
 </project>
