@@ -1,3 +1,4 @@
+
 /**
  * SubstitutionCipher
  * @author Tim Hsu
@@ -30,33 +31,27 @@ public class SubstitutionCipher {
      * this method rather than using String concatenation.
      *
      * @param input
-     *            String to be encrypted
+     *              String to be encrypted
      * @param shift
-     *            Amount to shift each character of input to the right
+     *              Amount to shift each character of input to the right
      * @return the encrypted String as outlined above
      */
     public static String shift(String input, int shift) { // shifting method using upper case and lower case set
         StringBuilder sb = new StringBuilder();
         char encode;
         int original;
-        for(int i = 0; i < input.length(); i++) // within the input length, decide whether it is upper case
-        {                                       // or lower case and shift with the input value
-            if(!Character.isLetter(input.charAt(i)))
-            {
+        for (int i = 0; i < input.length(); i++) // within the input length, decide whether it is upper case
+        { // or lower case and shift with the input value
+            if (!Character.isLetter(input.charAt(i))) {
                 sb.append(input.charAt(i));
-            }
-            else
-            {
-                if(Character.isUpperCase(input.charAt(i)))
-                {
+            } else {
+                if (Character.isUpperCase(input.charAt(i))) {
                     original = UPPERCASE.indexOf(input.charAt(i));
-                    encode = UPPERCASE.charAt( (original + shift + 26) % 26 ); // keep the value to the positive
+                    encode = UPPERCASE.charAt((original + shift + 26) % 26); // keep the value to the positive
                     sb.append(encode);
-                }
-                else
-                {
+                } else {
                     original = LOWERCASE.indexOf(input.charAt(i));
-                    encode = LOWERCASE.charAt( (original + shift + 26) % 26 );
+                    encode = LOWERCASE.charAt((original + shift + 26) % 26);
                     sb.append(encode);
                 }
             }
@@ -72,22 +67,20 @@ public class SubstitutionCipher {
      * the user enters a non-empty String
      *
      * @param in
-     *            Scanner to read user input from
+     *                  Scanner to read user input from
      * @param promptMsg
-     *            Message to display to user to prompt them for input
+     *                  Message to display to user to prompt them for input
      * @return the String entered by the user
      */
     public static String promptForString(Scanner in, String promptMsg) { // prompt the user until they enter
-        String userInput = "";                                          // the value that isn't empty
+        String userInput = ""; // the value that isn't empty
         boolean haveinput = false;
-        while(!haveinput)
-        {
+        while (!haveinput) {
             System.out.print(promptMsg);
             userInput = in.nextLine();
-            if(!userInput.trim().isEmpty()){
+            if (!userInput.trim().isEmpty()) {
                 haveinput = true;
-            }
-            else{
+            } else {
                 System.out.println("ERROR! Empty Input Not Allowed!");
             }
         }
@@ -103,20 +96,20 @@ public class SubstitutionCipher {
      * filenames given as parameters.
      *
      * @param inFile
-     *            the file to be transformed
+     *                the file to be transformed
      * @param outFile
-     *            the file to write the transformed output to
+     *                the file to write the transformed output to
      * @param shift
-     *            the amount to shift the characters from inFile by
+     *                the amount to shift the characters from inFile by
      * @return false if an exception occurs and the error message is written,
      *         otherwise true
      */
-    public static boolean transformFile(String inFile, String outFile,int shift) { // transform the file
-        try{                                                                     // whether it is decode or encode and then catch the errors
-            Scanner reader = new Scanner(new File (inFile));
+    public static boolean transformFile(String inFile, String outFile, int shift) { // transform the file
+        try { // whether it is decode or encode and then catch the errors
+            Scanner reader = new Scanner(new File(inFile));
             PrintWriter writer = new PrintWriter(new FileWriter(outFile));
 
-            while(reader.hasNext()){
+            while (reader.hasNext()) {
                 String line = reader.nextLine();
                 String transformedLine = shift(line, shift);
                 writer.println(transformedLine);
@@ -124,11 +117,9 @@ public class SubstitutionCipher {
             reader.close(); // close the scanner and writer
             writer.close();
             return true;
-        }
-        catch(FileNotFoundException e){ // catch the exception
+        } catch (FileNotFoundException e) { // catch the exception
             System.out.println("ERROR! File inFile not found");
-        }
-        catch(IOException i){
+        } catch (IOException i) {
             System.out.println("ERROR! Cannot write to outFile");
         }
         return false;
@@ -145,16 +136,19 @@ public class SubstitutionCipher {
      * choice.
      *
      * @param in
-     *            Scanner to read user choices from
+     *           Scanner to read user choices from
      * @return the user's choice as an uppercase character
      */
-    public static char getChoice(Scanner in) { // get the choice from the user whether they want to encode or decode or quit the file
+    public static char getChoice(Scanner in) { // get the choice from the user whether they want to encode or decode or
+                                               // quit the file
         boolean validinput = false;
         String choice = "";
-        while(!validinput){
+        while (!validinput) {
             System.out.print("Enter your choice: ");
             choice = in.nextLine().trim().toUpperCase();
-            if(choice.equals("E") || choice.equals("D") || choice.equals("Q")){ validinput = true;}
+            if (choice.equals("E") || choice.equals("D") || choice.equals("Q")) {
+                validinput = true;
+            }
         }
         return choice.charAt(0);
     }
@@ -170,11 +164,11 @@ public class SubstitutionCipher {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        while (true){ // keep prompting until the user type Q
+        while (true) { // keep prompting until the user type Q
             displayMenu();
             char choice = getChoice(in);
 
-            if (choice == 'Q'){
+            if (choice == 'Q') {
                 System.out.println();
                 System.out.println("Goodbye!");
                 break;
@@ -184,14 +178,14 @@ public class SubstitutionCipher {
             String outFile = promptForString(in, "Enter an output file: ");
             int shift = 0;
 
-            if (choice == 'E'){ // decide whether it is encode or decode and then do the action
+            if (choice == 'E') { // decide whether it is encode or decode and then do the action
                 shift = Integer.parseInt(promptForString(in, "Enter a shift amount: "));
-            }
-            else if (choice == 'D'){
+            } else if (choice == 'D') {
                 shift = -Integer.parseInt(promptForString(in, "Enter a shift amount: "));
             }
 
-            if(transformFile(inFile, outFile, shift)){ // print the prompt when the file is succesfully encode or decode
+            if (transformFile(inFile, outFile, shift)) { // print the prompt when the file is succesfully encode or
+                                                         // decode
                 System.out.println("Finished writing to file.");
                 System.out.println();
             }

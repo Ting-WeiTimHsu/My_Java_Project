@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
-public class LetterToGPA
-{
-    public static void main(String[] args)
-    {
+public class LetterToGPA {
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
         int Credit_Hours;
@@ -14,11 +12,11 @@ public class LetterToGPA
         int i = 0;
         boolean End = false;
 
-        System.out.println("Please insert the letter grades and credit hours for your four classes below once prompted.");
+        System.out
+                .println("Please insert the letter grades and credit hours for your four classes below once prompted.");
         String gpatable = "";
 
-        while(!End)
-        {
+        while (!End) {
             System.out.print("Enter a letter grade (Capitalized): ");
             String Letter_Grade = in.nextLine();
 
@@ -26,22 +24,19 @@ public class LetterToGPA
             Credit_Hours = Integer.parseInt(in.nextLine());
             double Credit = Credit_Hours;
 
-            if (!(Letter_Grade.equals("A") || Letter_Grade.equals("A-") || Letter_Grade.equals("B+") || Letter_Grade.equals("B") || Letter_Grade.equals("B-") || Letter_Grade.equals("C+") || Letter_Grade.equals("C") || Letter_Grade.equals("C-") || Letter_Grade.equals("D+") || Letter_Grade.equals("D") || Letter_Grade.equals("E")))
-            {
+            if (!(Letter_Grade.equals("A") || Letter_Grade.equals("A-") || Letter_Grade.equals("B+")
+                    || Letter_Grade.equals("B") || Letter_Grade.equals("B-") || Letter_Grade.equals("C+")
+                    || Letter_Grade.equals("C") || Letter_Grade.equals("C-") || Letter_Grade.equals("D+")
+                    || Letter_Grade.equals("D") || Letter_Grade.equals("E"))) {
                 System.out.println("Invalid input of letter grade. Please try again.");
                 End = true;
                 break;
-            }
-            else if(Credit_Hours % 1 != 0)
-            {
+            } else if (Credit_Hours % 1 != 0) {
                 System.out.println("Invalid input of credit hours. Please try again.");
                 End = true;
                 break;
-            }
-            else
-            {
-                switch (Letter_Grade)
-                {
+            } else {
+                switch (Letter_Grade) {
                     case "A":
                         GPA = 4.0;
                         break;
